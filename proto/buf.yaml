@@ -1,0 +1,8 @@
+version: v1
+name: buf.build/gaelstervinou/finalproject
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT

@@ -1,0 +1,247 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "test.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "TestApi"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "mainCreatePaymentResponse": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ProductId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "PricePaid": {
+          "type": "number",
+          "format": "float"
+        },
+        "CreatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "UpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "mainCreateProductResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "float"
+        },
+        "CreatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "UpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "mainDeleteProductByIdResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "mainGetAllPaymentsResponse": {
+      "type": "object",
+      "properties": {
+        "payments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/mainGetPaymentByIdResponse"
+          }
+        }
+      }
+    },
+    "mainGetAllProductsResponse": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/mainProductByIdResponse"
+          }
+        }
+      }
+    },
+    "mainGetPaymentByIdResponse": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ProductId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "PricePaid": {
+          "type": "number",
+          "format": "float"
+        },
+        "CreatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "UpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "mainMessageResponse": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "mainProductByIdResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "float"
+        },
+        "CreatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "UpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "mainRoomResponse": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "boolean"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "mainUpdatePaymentResponse": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ProductId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "PricePaid": {
+          "type": "number",
+          "format": "float"
+        },
+        "CreatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "UpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "mainUpdateProductResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "float"
+        },
+        "CreatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "UpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

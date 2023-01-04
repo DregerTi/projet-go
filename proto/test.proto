@@ -1,0 +1,169 @@
+syntax = "proto3";
+package main;
+
+option go_package = "./proto";
+
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
+service TestApi {
+  rpc GetProductById(ProductByIdRequest) returns (ProductByIdResponse) {
+  }
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {
+  }
+  rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {
+  }
+  rpc GetAllProducts(GetAllProductsRequest) returns (GetAllProductsResponse) {
+  }
+  rpc DeleteProductById(DeleteProductByIdRequest) returns (DeleteProductByIdResponse) {
+  }
+
+  rpc CreatePayment(CreatePaymentRequest) returns (CreatePaymentResponse) {
+  }
+  rpc UpdatePayment(UpdatePaymentRequest) returns (UpdatePaymentResponse) {
+  }
+  rpc GetPaymentById(GetPaymentByIdRequest) returns (GetPaymentByIdResponse) {
+  }
+  rpc GetAllPayments(GetAllPaymentsRequest) returns (GetAllPaymentsResponse) {
+  }
+
+
+  rpc StreamPayments(RoomRequest) returns (stream MessageResponse) {}
+  rpc GetRoom(RoomRequest) returns (RoomResponse) {}
+  rpc PostToRoom(Message) returns (RoomResponse) {}
+  rpc DeleteRoom(RoomRequest) returns (RoomResponse) {}
+}
+
+
+
+message ProductByIdRequest {
+  int64 id = 1;
+}
+
+message ProductByIdResponse {
+  int64 id = 1;
+  string name = 2;
+  float price = 3;
+  google.protobuf.Timestamp CreatedAt = 4;
+  google.protobuf.Timestamp UpdatedAt = 5;
+}
+
+message CreateProductRequest {
+  string name = 1;
+  float price = 2;
+}
+
+message CreateProductResponse {
+  int64 id = 1;
+  string name = 2;
+  float price = 3;
+  google.protobuf.Timestamp CreatedAt = 4;
+  google.protobuf.Timestamp UpdatedAt = 5;
+}
+message UpdateProductRequest {
+  int64 id = 1;
+  optional string name = 2;
+  optional float price = 3;
+}
+message UpdateProductResponse {
+  int64 id = 1;
+  string name = 2;
+  float price = 3;
+  google.protobuf.Timestamp CreatedAt = 4;
+  google.protobuf.Timestamp UpdatedAt = 5;
+}
+
+message GetAllProductsRequest {
+}
+
+message GetAllProductsResponse {
+  repeated ProductByIdResponse products = 1;
+}
+
+message DeleteProductByIdRequest {
+  int64 id = 1;
+}
+
+message DeleteProductByIdResponse {
+  string message = 1;
+}
+
+message CreatePaymentRequest {
+  int64 ProductId = 1;
+}
+
+message CreatePaymentResponse {
+  int64 Id = 1;
+  int64 ProductId = 2;
+  float PricePaid = 3;
+  google.protobuf.Timestamp CreatedAt = 4;
+  google.protobuf.Timestamp UpdatedAt = 5;
+}
+
+message GetPaymentByIdRequest {
+  int64 Id = 1;
+}
+
+message GetPaymentByIdResponse {
+  int64 Id = 1;
+  int64 ProductId = 2;
+  float PricePaid = 3;
+  google.protobuf.Timestamp CreatedAt = 4;
+  google.protobuf.Timestamp UpdatedAt = 5;
+}
+
+message UpdatePaymentRequest {
+  int64 Id = 1;
+  int64 ProductId = 2;
+  float PricePaid = 3;
+}
+
+message UpdatePaymentResponse {
+  int64 Id = 1;
+  int64 ProductId = 2;
+  float PricePaid = 3;
+  google.protobuf.Timestamp CreatedAt = 4;
+  google.protobuf.Timestamp UpdatedAt = 5;
+}
+
+message GetAllPaymentsRequest {
+}
+
+message GetAllPaymentsResponse {
+  repeated GetPaymentByIdResponse payments = 1;
+}
+
+
+
+
+
+message StreamPaymentsRequest {
+}
+
+message StreamPaymentsResponse {
+  int64 Id = 1;
+  int64 ProductId = 2;
+  float PricePaid = 3;
+  google.protobuf.Timestamp CreatedAt = 4;
+  google.protobuf.Timestamp UpdatedAt = 5;
+}
+
+
+message Message {
+  string userId = 1;
+  string roomId = 2;
+  string text = 3;
+}
+
+message MessageResponse{
+  string text = 1;
+}
+
+message RoomRequest {
+}
+
+message RoomResponse {
+  bool created = 1;
+  bool success = 2;
+  string data = 3;
+}
